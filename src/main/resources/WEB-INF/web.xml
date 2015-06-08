@@ -1,0 +1,13 @@
+<web-app>
+
+<servlet>
+<servlet-name>formfieldprintingservlet</servlet-name>
+<servlet-class>com.prabhat.servletprintingformdata</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>formfieldprintingservlet</servlet-name>
+<url-pattern>/printfield</url-pattern>
+</servlet-mapping>
+
+</web-app>
