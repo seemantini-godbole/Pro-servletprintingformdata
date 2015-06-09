@@ -31,6 +31,8 @@ public class FormFieldsPrintingServlet extends HttpServlet {
 		out.println("Last Name is: " + req.getParameter("last_name"));
 		
 		out.println("This is the line added after second commit in git by same local user");
+
+		out.println("This line was added by the contributor ri-vinod and merged into master");
 		
 		out.println("</body>");
 
