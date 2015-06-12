@@ -32,7 +32,8 @@ public class FormFieldsPrintingServlet extends HttpServlet {
 		
 		out.println("This is the line added after second commit in git by same local user");
 
-		out.println("This line was added by the contributor ri-vinod and merged into master");
+		out.println("This line was added by the contributor ria-vinod and merged into master");
+		out.println("Added one more line in line with the pull request comments I got");
 		
 		out.println("</body>");
 
