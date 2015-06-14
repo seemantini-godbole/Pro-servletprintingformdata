@@ -34,6 +34,8 @@ public class FormFieldsPrintingServlet extends HttpServlet {
 
 		out.println("This line was added by the contributor ria-vinod and merged into master");
 		out.println("Added one more line in line with the pull request comments I got");
+
+		out.println("second change, this time a simpler method with git, without forking");
 		
 		out.println("</body>");
 
