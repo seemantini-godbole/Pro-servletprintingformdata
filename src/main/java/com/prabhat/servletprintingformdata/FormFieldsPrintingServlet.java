@@ -6,6 +6,8 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.util.*;
 
+import com.prabhat.fuelstudent.*;
+import com.prabhat.fueldboperations.*;
 
 public class FormFieldsPrintingServlet extends HttpServlet {
 
@@ -13,31 +15,90 @@ public class FormFieldsPrintingServlet extends HttpServlet {
 	
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
+
+		String firstName = req.getParameter("first_name");
+		String lastName = req.getParameter("last_name");
+		String emailAddress = req.getParameter("email_id");
+		String phoneNumber = req.getParameter("phone_number");
+		String addressLine1 = req.getParameter("address_line_1");
+		String addressLine2 = req.getParameter("address_line_2");
+		String city = req.getParameter("city");
+		String state = req.getParameter("state");
+		String zipcode = req.getParameter("zipcode");
 		
 		out.println("<html>");
 
 		out.println("<head>");
-		out.println("<title>FormFieldPrintingServlet</title>");
+		out.println("<title>Fuel Registration</title>");
 		out.println("</head>");
 		
 		out.println("<body>");
-		out.println("<h3>This servlet prints all form data</h3>");
-		out.println("<h3>This file is checked into git and compiled with maven</h3>");
-		out.println("Date here is: " + (new Date()).toLocaleString());
 		
-		out.println("<p/>");
-		out.println("First Name is: " + req.getParameter("first_name"));
-		out.println("<br/>");
-		out.println("Last Name is: " + req.getParameter("last_name"));
+		StudentPersonalInfo student = new StudentPersonalInfo(firstName, lastName, emailAddress, phoneNumber, addressLine1, addressLine2, city, state, zipcode);
+		int addSuccess = InsertNewStudentIntoDB.addNewStudentIntoDB(student);
 		
-		out.println("This is the line added after second commit in git by same local user");
+		
+		if (addSuccess > 0)
+		{
+			
+			out.println("<h3>Congratulations, You are registered as</h3>");
+			out.println("Date here is: " + (new Date()).toLocaleString());
+		
+			out.println("<p/>");
+			out.println("First Name: " + req.getParameter("first_name"));
+			out.println("<br/>");
+			out.println("Last Name: " + req.getParameter("last_name"));
+			out.println("<br/>");
+			out.println("Email Address: " + req.getParameter("email_id"));
+			out.println("<br/>");
+			out.println("Phone Number: " + req.getParameter("phone_number"));
+			out.println("<br/>");
+			out.println("Address Line 1: " + req.getParameter("address_line_1"));
+			out.println("<br/>");
+			out.println("Address Line 2: " + req.getParameter("address_line_2"));
+			out.println("<br/>");
+			out.println("City: " + req.getParameter("city"));
+			out.println("<br/>");
+			out.println("State: " + req.getParameter("state"));
+			out.println("<br/>");
+			out.println("Zipcode: " + req.getParameter("zipcode"));
+			
+			
 
-		out.println("This line was added by the contributor ria-vinod and merged into master");
-		out.println("Added one more line in line with the pull request comments I got");
+			//print congratulations only if student has been registered
+			//print all students that are registered
+	
 
-		out.println("second change, this time a simpler method with git, without forking");
-
-		out.println("latest change: made by the owner of the repo");
+			out.println("<p/> Thank you for registering with Fuel Career Counselling program");
+		}
+		else
+		{
+			out.println("<h3>Error Occured, please try again</h3>");
+			
+			out.println("<p/>");
+			out.println("First Name: " + req.getParameter("first_name"));
+			out.println("<br/>");
+			out.println("Last Name: " + req.getParameter("last_name"));
+			out.println("<br/>");
+			out.println("Email Address: " + req.getParameter("email_id"));
+			out.println("<br/>");
+			out.println("Phone Number: " + req.getParameter("phone_number"));
+			out.println("<br/>");
+			out.println("Address Line 1: " + req.getParameter("address_line_1"));
+			out.println("<br/>");
+			out.println("Address Line 2: " + req.getParameter("address_line_2"));
+			out.println("<br/>");
+			out.println("City: " + req.getParameter("city"));
+			out.println("<br/>");
+			out.println("State: " + req.getParameter("state"));
+			out.println("<br/>");
+			out.println("Zipcode: " + req.getParameter("zipcode"));
+			
+			
+			out.println("Date here is: " + (new Date()).toLocaleString());
+		
+			out.println("<p/>");
+		}
 		
 		out.println("</body>");
 

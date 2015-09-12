@@ -1,0 +1,45 @@
+package com.prabhat.servletprintingformdata;
+
+import java.io.*;
+import java.util.*;
+
+
+public class StudentPersonalInfo {
+
+	private String firstName;
+	private String lastName;
+	
+	public StudentPersonalInfo(String firstName, String lastName)
+	{
+		this.firstName = new String();
+		this.lastName = new String();
+		
+		if (firstName != null)
+			this.firstName = firstName;
+		
+		if (lastName != null)
+			this.lastName = lastName;
+	}
+	
+	public boolean isValid()
+	{
+		if (this.firstName != null && this.firstName.length() > 0)
+		{
+			if (this.lastName != null && this.lastName.length() > 0)
+				return true;
+		}
+		return false;
+	}
+	
+	public String getFirstName()
+	{
+		return this.firstName;
+	}
+	
+	public String getLastName()
+	{
+		return this.lastName;
+	}
+
+}
+	
