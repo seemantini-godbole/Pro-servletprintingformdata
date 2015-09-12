@@ -1,0 +1,32 @@
+package com.prabhat.servletprintingformdata;
+
+import java.io.*;
+import java.util.*;
+import java.sql.*;
+
+
+
+public class InsertNewStudentIntoDB {
+
+	static final String STUDENT_TABLE_NAME = "Personal_Info"; 
+	static final String FIRST_NAME = "First_Name"; 
+	static final String LAST_NAME = "Last_Name"; 
+	
+	public static boolean addNewStudentIntoDB ( StudentPersonalInfo studentInfo )
+	{
+		if (!studentInfo.isValid())
+			return false;
+		
+		String queryString = new String("INSERT INTO " + STUDENT_TABLE_NAME + "(" + FIRST_NAME + "," + LAST_NAME + ")" + 
+										" VALUES" + "('" + studentInfo.getFirstName() + "','" + studentInfo.getLastName() + "');");
+		
+		ResultSet rs = FuelDB.executeQuery(queryString);
+		if (rs == null)
+			return false;
+		
+		return true;
+		//Execute the query here keep the DB util class very dumb, just knowing msql and user id and password
+	}
+	
+	
+}

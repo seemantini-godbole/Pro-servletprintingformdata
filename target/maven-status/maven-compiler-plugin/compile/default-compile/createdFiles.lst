@@ -1,2 +1,5 @@
+com/prabhat/fueldboperations/FuelDB.class
+com/prabhat/fueldboperations/InsertNewStudentIntoDB.class
 com/prabhat/servletprintingformdata/App.class
 com/prabhat/servletprintingformdata/FormFieldsPrintingServlet.class
+com/prabhat/fuelstudent/StudentPersonalInfo.class

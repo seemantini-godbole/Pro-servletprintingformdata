@@ -21,14 +21,19 @@ public class FormFieldsPrintingServlet extends HttpServlet {
 		out.println("</head>");
 		
 		out.println("<body>");
-		out.println("<h3>This servlet prints all form data</h3>");
-		out.println("<h3>This file is checked into git and compiled with maven</h3>");
+		out.println("<h3>Congratulations, You are registered as</h3>");
 		out.println("Date here is: " + (new Date()).toLocaleString());
 		
 		out.println("<p/>");
-		out.println("First Name is: " + req.getParameter("first_name"));
+		out.println("First Name: " + req.getParameter("first_name"));
 		out.println("<br/>");
-		out.println("Last Name is: " + req.getParameter("last_name"));
+		out.println("Last Name: " + req.getParameter("last_name"));
+
+		//print congratulations only if student has been registered
+		//print all students that are registered
+	
+
+		out.println("<p/> Thank you for registering with Fuel Career Counselling program");
 		
 		out.println("</body>");
 
